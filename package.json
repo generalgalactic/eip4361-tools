@@ -1,0 +1,30 @@
+{
+  "name": "eip4361-tools",
+  "version": "0.0.1",
+  "description": "A set of tools for working with Sign-in With Ethereum",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/generalgalactic/eip4361-tools.git"
+  },
+  "keywords": [
+    "authentication",
+    "ethereum",
+    "eip4361"
+  ],
+  "author": "Clint Ecker <clint@galactic.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/generalgalactic/eip4361-tools/issues"
+  },
+  "homepage": "https://github.com/generalgalactic/eip4361-tools#readme",
+  "dependencies": {
+    "ethers": "^5.5.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
