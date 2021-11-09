@@ -4,7 +4,10 @@
   "description": "A set of tools for working with Sign-in With Ethereum",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint index.js tests/**/*.js",
+    "lint:fix": "eslint index.js tests/**/*.js --fix"
   },
   "repository": {
     "type": "git",
@@ -22,9 +25,17 @@
   },
   "homepage": "https://github.com/generalgalactic/eip4361-tools#readme",
   "dependencies": {
+    "@jest/globals": "^27.3.1",
+    "crypto": "^1.0.1",
     "ethers": "^5.5.1"
   },
   "devDependencies": {
-    "jest": "^27.3.1"
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1"
   }
 }
