@@ -42,7 +42,7 @@ function produceMessage(
   nonce,
   chainId,
   requestId,
-  resources
+  resources = []
 ) {
   let message = `${domain} wants you to sign in with your Ethereum account:
 ${address}
@@ -66,7 +66,7 @@ Issued At: ${nonce.issuedAt.toISOString()}`;
   if (requestId) {
     message += `\nRequest ID: ${requestId}`;
   }
-  if (resources) {
+  if (resources && resources.length) {
     message += "\nResources:";
     resources.forEach((resource) => {
       message += `\n- ${resource}`;
@@ -82,7 +82,7 @@ Issued At: ${nonce.issuedAt.toISOString()}`;
  * @param {Data|null} [notBefore] - The date, before which, the request should not be valid.
  * @returns {Nonce} - The requested nonce.
  */
-function makeNonce(expirationTTLSeconds, notBefore = null) {
+function makeNonce(expirationTTLSeconds = null, notBefore = null) {
   const issuedAt = new Date();
   let expirationTime = null;
   if (expirationTTLSeconds) {
@@ -144,7 +144,7 @@ async function verifySignature(
   nonce,
   chainId,
   requestId,
-  resources
+  resources = []
 ) {
   verifyNonce(nonce);
   const eip4361Message = produceMessage(
