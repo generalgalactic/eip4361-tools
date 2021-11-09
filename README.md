@@ -4,8 +4,8 @@
 
 A set of tools for working with Sign-In With Ethereum (EIP4361).
 
-See: https://github.com/ethereum/EIPs/pull/4361/files
-See: https://ethereum-magicians.org/t/eip-4361-sign-in-with-ethereum/7263
+- See: https://github.com/ethereum/EIPs/pull/4361/files
+- See: https://ethereum-magicians.org/t/eip-4361-sign-in-with-ethereum/7263
 
 ## Functions
 
@@ -27,10 +27,10 @@ Produces an EIP4361 compliant message for a wallet to sign.
 
 Request the connected wallet to `personal_sign` (EIP-191) this message and capture the signature.
 
-See: https://eips.ethereum.org/EIPS/eip-191
-See: https://geth.ethereum.org/docs/rpc/ns-personal#personal_sign
-See: https://docs.ethers.io/v5/api/signer/#Signer-signMessage
-See: https://web3js.readthedocs.io/en/v1.5.2/web3-eth-personal.html#sign
+- See: https://eips.ethereum.org/EIPS/eip-191
+- See: https://geth.ethereum.org/docs/rpc/ns-personal#personal_sign
+- See: https://docs.ethers.io/v5/api/signer/#Signer-signMessage
+- See: https://web3js.readthedocs.io/en/v1.5.2/web3-eth-personal.html#sign
 
 ### `eip4361.verifyMessage(signature, domain, address, statement, uri, version, nonce, chainId = null, requestId = null, resources = [])`
 
