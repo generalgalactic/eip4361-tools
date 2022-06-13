@@ -1,5 +1,5 @@
-const { expect, test } = require("@jest/globals");
-const eip4361 = require("../index");
+import { test, expect } from "@jest/globals";
+import * as eip4361 from "../index";
 
 test("Can make nonce with no parameters supplied", () => {
   const nonce = eip4361.makeNonce();

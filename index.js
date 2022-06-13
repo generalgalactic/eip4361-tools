@@ -1,5 +1,5 @@
-const ethers = require("ethers");
-const crypto = require("crypto");
+import ethers from "ethers";
+import crypto from "crypto";
 
 /**
  * @typedef Nonce
@@ -12,12 +12,12 @@ const crypto = require("crypto");
 /**
  * An error indicating the supplied nonce was invalid.
  */
-class InvalidNonceError extends Error {}
+export class InvalidNonceError extends Error {}
 
 /**
  * An error indicating the signature was invalid.
  */
-class InvalidSignatureError extends Error {}
+export class InvalidSignatureError extends Error {}
 
 /**
  * Produce the EIP4361 Message for Wallet to Sign
@@ -33,7 +33,7 @@ class InvalidSignatureError extends Error {}
  * @param {string[]} [resources=[]] - An array of URIs for resources associated with the request.
  * @returns {string} - The message that the client should ask the wallet to sign with `personal_sign`.
  */
-function produceMessage(
+export function produceMessage(
   domain,
   address,
   statement,
@@ -82,7 +82,7 @@ Issued At: ${nonce.issuedAt.toISOString()}`;
  * @param {Data|null} [notBefore] - The date, before which, the request should not be valid.
  * @returns {Nonce} - The requested nonce.
  */
-function makeNonce(expirationTTLSeconds = null, notBefore = null) {
+export function makeNonce(expirationTTLSeconds = null, notBefore = null) {
   const issuedAt = new Date();
   let expirationTime = null;
   if (expirationTTLSeconds) {
@@ -106,7 +106,7 @@ function makeNonce(expirationTTLSeconds = null, notBefore = null) {
  * @param {Nonce} nonce - The nonce to verify
  * @throws {InvalidNonceError} - If the nonce is invalid for any reason.
  */
-function verifyNonce(nonce) {
+export function verifyNonce(nonce) {
   const currentTime = new Date();
   if (nonce.expirationTime && nonce.expirationTime < currentTime) {
     throw new InvalidNonceError(
@@ -134,7 +134,7 @@ function verifyNonce(nonce) {
  * @throws {InvalidNonceError} - If the supplied nonce was invalid.
  * @throws {InvalidSignatureError} - If the supplied signature was invalid.
  */
-async function verifySignature(
+export async function verifySignature(
   signature,
   domain,
   address,
@@ -168,9 +168,3 @@ async function verifySignature(
     throw new InvalidSignatureError("Signature is signed by other account.");
   }
 }
-
-exports.verifySignature = verifySignature;
-exports.produceMessage = produceMessage;
-exports.makeNonce = makeNonce;
-exports.InvalidNonceError = InvalidNonceError;
-exports.InvalidSignatureError = InvalidSignatureError;

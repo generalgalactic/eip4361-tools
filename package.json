@@ -1,11 +1,12 @@
 {
   "name": "eip4361-tools",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A set of tools for working with Sign-in With Ethereum",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "node --experimental-vm-modules $(yarn bin jest)",
+    "test:watch": "node --experimental-vm-modules $(yarn bin jest --watch)",
     "lint": "eslint index.js tests/**/*.js",
     "lint:fix": "eslint index.js tests/**/*.js --fix"
   },
